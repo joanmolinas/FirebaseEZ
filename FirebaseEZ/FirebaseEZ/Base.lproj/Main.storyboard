@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="La0-TG-eRM">
+                                <rect key="frame" x="16" y="299" width="343" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="Q7G-CI-PuQ"/>
+                                </constraints>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uoF-LO-sMw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="La0-TG-eRM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3Zl-TE-rTX"/>
+                            <constraint firstItem="La0-TG-eRM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ejp-Fq-JBN"/>
+                            <constraint firstItem="La0-TG-eRM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="flV-zl-XT7"/>
+                            <constraint firstItem="La0-TG-eRM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="p5D-YG-exm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="RjG-e2-gNn" kind="presentation" identifier="connectSegue" id="mkh-g6-Zqw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Chats View Controller-->
+        <scene sceneID="iFb-Je-Enu">
+            <objects>
+                <tableViewController id="hDg-0I-H42" customClass="ChatsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c1I-xa-ccp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="7Qh-nG-Ahn">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Qh-nG-Ahn" id="nTO-UI-1U4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hDg-0I-H42" id="N8z-GE-sJx"/>
+                            <outlet property="delegate" destination="hDg-0I-H42" id="nBR-HW-eZ5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lZb-hM-gBV">
+                        <barButtonItem key="leftBarButtonItem" title="Disconnect" id="3jB-Ub-Qxf">
+                            <connections>
+                                <action selector="disconnect:" destination="hDg-0I-H42" id="K5V-yF-LTF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ALH-JV-6z0" kind="show" identifier="chatConversation" id="1V4-9u-x6c"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aek-Bv-LDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="139"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="SWf-US-Ks0">
+            <objects>
+                <tableViewController id="ALH-JV-6z0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vxe-C8-Lqw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="T8b-qb-6V0">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T8b-qb-6V0" id="gSY-ON-2sy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ALH-JV-6z0" id="zHy-4l-dxc"/>
+                            <outlet property="delegate" destination="ALH-JV-6z0" id="3RV-yi-OzA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="L4c-ob-94l"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkn-Ga-2MW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2572" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UR1-H3-7qV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RjG-e2-gNn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hlF-WE-I9X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hDg-0I-H42" kind="relationship" relationship="rootViewController" id="GRU-RL-BSd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uki-9u-8TA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="933.60000000000002" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
